@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <title>원페이지 쇼핑몰</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Dokdo&display=swap" rel="stylesheet">
+        <style>
+            * {
+                font-family: 'Dokdo', cursive;
+            }
+
+            .teaimage {
+                width: 700px;
+                height: 500px;
+                background-image: url("https://img-cf.kurly.com/shop/data/goodsview/20201029/gv40000131072_1.jpg");
+                background-size: cover;
+                background-position: center;
+            }
+
+            .prise {
+                font-size: 16px;
+            }
+
+            .box-1area {
+                width: 700px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            .box-2area {
+                width: 700px;
+
+            }
+
+            .mybtn {
+                width: 150px;
+                margin: 20px auto;
+                display: block;
+            }
+
+            .warp {
+                width: 700px;
+                margin: auto;
+            }
+        </style>
+        <script>
+            function order() {
+                alert('주문의 완료 되였습니다.!');
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="warp">
+            <div class="teaimage"></div>
+            <div class="box-1area">
+                <h1>인도커리를 팝니다 <span class="prise">가격:25,000원 / 개</span></h1>
+                <p>한국에는 일제 강점기인 1925년 즈음 일본식 카레가 들어왔다.
+                    1963년 9월 제일식품화성주식회사에서 한국 최초의 즉석 카레 제품인 "스타 카레분"을 시장에 내놓았다.
+                    이후 1968년에 조흥화학 식품사업부(현 오뚜기)에서 처음으로 카레가루를 생산·판매하였으며,
+                    1980년대에 오뚜기에서 레토르트 카레를 출시하였다.
+                    한국에서 주로 볼 수 있는 카레는 다른 커리에 비해 울금의 함량이 커 노란색을 띤다.
+                    이렇게 노란색을 띄게 된 시기는 1990년대 즈음이며, 그 이전에는 일본과 비슷하게 갈색에 가까운 색을 띠었다.</p>
+            </div>
+            <div class="box-2area">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">주문자 이름</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">수량</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>---수량을 선택하세요---</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <button onclick="order()" type="button" class="btn btn-primary mybtn">Primary</button>
+            </div>
+        </div>
+    </body>
+
+</html>

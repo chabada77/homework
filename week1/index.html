@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        <title>원페이지쇼핑몰</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap" rel="stylesheet">
+
+        <style>
+            * {
+                font-family: 'Hi Melody', cursive;
+            }
+
+            .myitem {
+                width: 500px;
+                height: 300px;
+                background-image: url("boytea.jpg");
+                background-position: center;
+                background-size: auto;
+
+            }
+
+            .price {
+                font-size: 16px;
+            }
+
+            .desc {
+                width: 500px;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+
+            .order-box {
+                width: 500px;
+            }
+
+            .mybtn {
+                width: 100px;
+                margin: auto;
+                display: block;
+            }
+
+            .wrap {
+                margin: auto;
+                width: 500px;
+            }
+            .ex-color {
+                color: red;
+            }
+        </style>
+        <script>
+
+
+            function order() {
+                if ($('#error-name').val() == '') {
+                    alert("주문자 이름을 입력해주세요")
+                } else if ($('#error-choice').val() == '---수량을 선택하세요---') {
+                    alert("수량을 입력해주세요")
+                } else if ($('#error-add').val() == '') {
+                    alert("주소를 입력해주세요")
+                } else if ($('#error-phone').val() == '') {
+                    alert("전화번호를 입력해주세요")
+                } else {
+                    alert("주문이 완료되였습니다!")
+                }
+            }
+
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.manana.kr/exchange/rate.json",
+                    data: {},
+                    success: function (response) {
+                        let exchanges = response[1]['rate']
+                        $('#exchange-rate').text(exchanges)
+                    }
+            })
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="myitem"></div>
+            <div class="desc">
+                <h1>보이차를 팝니다<span class="price">가격:100,000원 / 개</span></h1>
+                <p>보이차에 함유된 ‘카테킨’ 성분은 체내 활성산소가 몸을 산화해 세포를 노화시키는 과정을 막는다.
+                    카테킨은 콜레스테롤 수치 완화에도 도움을 주며 관상동맥질환 및 동맥경화 위험도를 줄인다.
+                    질 좋은 보이차는 감기 예방에 도움이 된다.</p>
+            </div>
+            <div class="ex-color">
+                <p>환율정보 <span id="exchange-rate">0000</span>원</p>
+            </div>
+            <div class="order-box">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">주문자이름</span>
+                    </div>
+                    <input type="text" class="form-control" id="error-name" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text">수량</label>
+                    </div>
+                    <select class="custom-select" id="error-choice">
+                        <option selected>---수량을 선택하세요---</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">주소</span>
+                    </div>
+                    <input type="text" class="form-control" id="error-add" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">전화번호</span>
+                    </div>
+                    <input type="text" class="form-control" id="error-phone" aria-label="Default"
+                           aria-describedby="inputGroup-sizing-default">
+                </div>
+                <button onclick="order()" type="button" class="btn btn-primary mybtn">주문하기</button>
+            </div>
+        </div>
+    </body>
+
+</html>
